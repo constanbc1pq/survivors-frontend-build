@@ -39,41 +39,17 @@
 
   <link rel="stylesheet" type="text/css" href="style-mobile.25fc5.css"/>
   <link rel="icon" href="favicon.8de18.ico"/>
-  
-  <!-- 添加游戏容器样式 -->
-  <style>
-    #gameContainer {
-      width: 378px;
-      height: 673px;
-      margin: 0 auto;
-      overflow: hidden;
-      position: relative;
-    }
-    
-    #GameCanvas {
-      width: 100% !important;
-      height: 100% !important;
-    }
-    
-    #splash {
-      width: 100% !important;
-      height: 100% !important;
-    }
-  </style>
 </head>
 <body>
-  <!-- 添加游戏容器 div -->
-  <div id="gameContainer">
-    <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
-    <div id="splash">
-      <div class="progress-bar stripes">
-        <span style="width: 0%"></span>
-      </div>
+  <canvas id="GameCanvas" oncontextmenu="event.preventDefault()" tabindex="0"></canvas>
+  <div id="splash">
+    <div class="progress-bar stripes">
+      <span style="width: 0%"></span>
     </div>
   </div>
 
 <script src="src/settings.6f5aa.js" charset="utf-8"></script>
-<script src="vconsole.min.bac6b.js"></script>
+
 <script src="main.37b47.js" charset="utf-8"></script>
 
 <script type="text/javascript">

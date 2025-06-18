@@ -36,6 +36,9 @@
     <link rel="stylesheet" type="text/css" href="style-mobile.css"/>
     <link rel="icon" href="favicon.ico"/>
 
+    <!-- TON Connect SDK -->
+    <script src="https://unpkg.com/@tonconnect/sdk@latest/dist/tonconnect-sdk.min.js"></script>
+
     <style>
         html, body {
             margin: 0;
@@ -136,6 +139,46 @@
                     }
                 }
             }, 500); // 延迟执行，确保Cocos引擎已创建容器
+        });
+    </script>
+    
+    <!-- TON Connect初始化 -->
+    <script>
+        // 创建TON Connect manifest.json文件
+        function createTonConnectManifest() {
+            // 检查是否已存在manifest文件
+            fetch('/tonconnect-manifest.json')
+                .then(response => {
+                    if (!response.ok) {
+                        // 如果不存在，则创建manifest文件
+                        const manifest = {
+                            url: window.location.origin,
+                            name: "Bit Survivors",
+                            iconUrl: window.location.origin + "/favicon.ico",
+                            termsOfUseUrl: window.location.origin + "/terms",
+                            privacyPolicyUrl: window.location.origin + "/privacy"
+                        };
+                        
+                        console.log("Creating TON Connect manifest:", manifest);
+                        
+                        // 这里只是输出manifest内容，实际应用中需要服务器端支持创建文件
+                        // 或者预先创建好manifest.json文件放在服务器上
+                    }
+                })
+                .catch(error => {
+                    console.error("Error checking TON Connect manifest:", error);
+                });
+        }
+        
+        // 页面加载完成后初始化TON Connect
+        window.addEventListener('load', function() {
+            // 确保TON Connect SDK已加载
+            if (typeof TonConnect !== 'undefined') {
+                console.log("TON Connect SDK loaded");
+                createTonConnectManifest();
+            } else {
+                console.error("TON Connect SDK not loaded");
+            }
         });
     </script>
 </body>

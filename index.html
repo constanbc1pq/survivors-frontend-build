@@ -35,21 +35,6 @@
 
     <link rel="stylesheet" type="text/css" href="style-mobile.css"/>
     <link rel="icon" href="favicon.ico"/>
-    
-    <!-- OKX Web3 Wallet SDK -->
-    <script src="https://unpkg.com/@okxconnect/universal-provider@latest/dist/index.umd.js"></script>
-    <script>
-        // 确保OKX Web3钱包SDK可以全局访问
-        window.addEventListener('load', function() {
-            if (typeof OKXUniversalProvider !== 'undefined') {
-                window.OKXUniversalProvider = OKXUniversalProvider;
-            }
-            if (typeof OKXBtcProvider !== 'undefined') {
-                window.OKXBtcProvider = OKXBtcProvider;
-            }
-            console.log('OKX Web3 SDK initialized:', !!window.OKXUniversalProvider);
-        });
-    </script>
 
     <style>
         html, body {

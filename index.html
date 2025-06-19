@@ -126,15 +126,9 @@
     </script>
     
     <script>
-        // 在游戏加载完成后调整Cocos2dGameContainer尺寸，并禁用自动全屏
+        // 在游戏加载完成后调整Cocos2dGameContainer尺寸
         window.addEventListener('load', function() {
             setTimeout(function() {
-                // 禁用自动全屏
-                if (cc && cc.view) {
-                    cc.view.enableAutoFullScreen(false);
-                    console.log("已禁用自动全屏功能");
-                }
-                
                 var container = document.getElementById('Cocos2dGameContainer');
                 if (container) {
                     // 检测是否为移动设备

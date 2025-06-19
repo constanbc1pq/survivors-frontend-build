@@ -20,8 +20,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
     <meta name="msapplication-tap-highlight" content="no">
 
-    <!-- force full screen on some browser -->
-    <!-- 禁用全屏相关meta标签 -->
+    <!-- 注释掉强制全屏的元数据标签 -->
+    <!-- 
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    -->
     
     <!-- force screen orientation on some browser -->
     <meta name="screen-orientation" content="portrait"/>
@@ -122,16 +126,15 @@
     </script>
     
     <script>
-        // 禁用Cocos引擎自动全屏功能
+        // 在游戏加载完成后调整Cocos2dGameContainer尺寸，并禁用自动全屏
         window.addEventListener('load', function() {
-            // 等待Cocos引擎初始化完成
             setTimeout(function() {
                 // 禁用自动全屏
                 if (cc && cc.view) {
                     cc.view.enableAutoFullScreen(false);
+                    console.log("已禁用自动全屏功能");
                 }
                 
-                // 调整容器尺寸
                 var container = document.getElementById('Cocos2dGameContainer');
                 if (container) {
                     // 检测是否为移动设备
@@ -143,7 +146,7 @@
                         container.style.height = '100%';
                     }
                 }
-            }, 500);
+            }, 500); // 延迟执行，确保Cocos引擎已创建容器
         });
     </script>
 </body>

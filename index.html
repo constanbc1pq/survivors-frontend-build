@@ -21,6 +21,7 @@
     <meta name="msapplication-tap-highlight" content="no">
 
     <!-- force full screen on some browser -->
+    <!-- 禁用全屏相关meta标签 -->
     
     <!-- force screen orientation on some browser -->
     <meta name="screen-orientation" content="portrait"/>
@@ -121,9 +122,16 @@
     </script>
     
     <script>
-        // 在游戏加载完成后调整Cocos2dGameContainer尺寸
+        // 禁用Cocos引擎自动全屏功能
         window.addEventListener('load', function() {
+            // 等待Cocos引擎初始化完成
             setTimeout(function() {
+                // 禁用自动全屏
+                if (cc && cc.view) {
+                    cc.view.enableAutoFullScreen(false);
+                }
+                
+                // 调整容器尺寸
                 var container = document.getElementById('Cocos2dGameContainer');
                 if (container) {
                     // 检测是否为移动设备
@@ -135,7 +143,7 @@
                         container.style.height = '100%';
                     }
                 }
-            }, 500); // 延迟执行，确保Cocos引擎已创建容器
+            }, 500);
         });
     </script>
 </body>
